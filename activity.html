@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+    .calendar {
+      font-family: Poppins, 'san-serif';
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Prepare a container for your calendar. -->
+  <div class="bg-white p-3 rounded">
+    <h5>  <i
+      class="fa fa-code pr-2"></i>Github</h5>
+    <div class="calendar">
+      <!-- Loading stuff -->
+      Loading the data just for you.
+    </div>
+  </div>
+
+  <div class="bg-white p-3 my-4 rounded">
+    <h5> <i
+      class="fa fa-stack-overflow pr-2"></i>Stackoverflow</h5>
+    <div style="border: 1px solid #DDDDDD;">
+      <div class="contrib-column table-column">
+        <span class="text-muted head">Reputation</span>
+        <span class="contrib-number" id="repu"></span>
+        <span class="text-muted">from May 23 to current</span>
+      </div>
+      <div id="stack">
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        myArr = JSON.parse(this.responseText);
+
+        stack = document.getElementById('stack');
+
+        var obj = myArr.items[0].badge_counts;
+        i = 0;
+        for (var key in obj) {
+          column = document.createElement('div');
+          column.classList.add("contrib-column", "table-column");
+
+          span1 = document.createElement('span');
+          span1.classList.add("text-muted");
+
+          span2 = document.createElement('span');
+          span2.classList.add("contrib-number");
+
+          span3 = document.createElement('span');
+          span3.classList.add("text-muted");
+
+          textnode = document.createTextNode(key);
+          textnode2 = document.createTextNode(obj[key]);
+          textnode3 = document.createTextNode('from 23 May 2019 to Current');
+
+          span1.appendChild(textnode);
+          span2.appendChild(textnode2);
+          span3.appendChild(textnode3);
+
+          span1.appendChild(textnode);
+          column.appendChild(span1);
+          column.appendChild(span2);
+          column.appendChild(span3);
+          stack.appendChild(column);
+
+        }
+
+
+        ee = document.getElementById('repu')
+        repu = document.createTextNode(myArr.items[0].reputation)
+        ee.appendChild(repu)
+        // bronze = myArr.items[0].badge_counts.bronze;
+
+        // document.getElementById('output').innerHTML = bronze;
+
+      }
+      // document.getElementById("myList").innerHTML = myArr.items[5].family;
+    }
+    xmlhttp.open("GET",
+      "https://api.stackexchange.com/2.2/users/13202252?order=desc&sort=reputation&site=stackoverflow",
+      true);
+    xmlhttp.send();
+  </script>
+<!-- https://api.stackexchange.com/2.2/users/13202252?order=desc&sort=reputation&site=stackoverflow -->
+  <script>
+    GitHubCalendar(".calendar", "FareedKhan-dev")
+    // or enable responsive functionality:
+  </script>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

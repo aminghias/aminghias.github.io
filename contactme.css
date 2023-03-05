@@ -1,0 +1,91 @@
+body {
+  font-family: Poppins, 'san-serif';
+  background-color: #17c3b7;
+}
+
+
+.My-Button-see-live {
+  background-color: #212529;
+  color: white;
+  border: #212529 solid 0.5px;
+  border-radius: 0px;
+}
+  
+.My-Button-see-live:hover,
+.My-Button-see-live:active {
+  background-color: #212529;
+  color: white;
+  border: #212529 solid 0.5px;
+  border-radius: 0px;
+}
+
+
+@media (min-width: 54px) {
+  .okay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+
+  }
+}
+
+
+
+@media (min-width: 300px) {
+  .okay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+
+  }
+}
+
+@media (min-width: 576px) {
+  .okay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+@media (min-width: 768px) {
+  .okay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 70%;
+  }
+  
+
+}
+
+@media (min-width: 992px) {
+  .okay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+
+   
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  .okay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+   
+  }
+  
+}

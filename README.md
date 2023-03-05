@@ -1,1 +1,1 @@
-# aminghias.github.io
+# FareedKhan-dev.github.io
